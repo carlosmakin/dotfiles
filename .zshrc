@@ -23,13 +23,18 @@ alias grep='grep --color=auto'
 alias ip='ip --color=auto'
 alias ls='ls --color=auto'
 alias ping='ping -c 5'
+alias df='df -h'
+alias du='du -h'
 alias cp='cp -v'
 alias ln='ln -v'
 alias mv='mv -v'
 alias rm='rm -v'
 
 # Set options
+setopt CORRECT
 setopt PROMPT_SUBST
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
 
 # VCS info (Git branch)
 autoload -Uz vcs_info
@@ -42,6 +47,10 @@ precmd() { vcs_info }
 # Prompt Customization
 PROMPT='%F{%(?.green.red)}%(?.➜.✗)%f %F{cyan}%c%f${vcs_info_msg_0_} ' 
 RPROMPT="%@"
+
+# History Search with Arrow Keys
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
 # PATH Configuration
 export PATH="$PATH:/usr/local/flutter/bin"
