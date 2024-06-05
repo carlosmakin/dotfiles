@@ -34,6 +34,7 @@ alias rm='rm -v'
 setopt CORRECT
 setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 
 # VCS info (Git branch)
