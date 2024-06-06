@@ -21,6 +21,8 @@ setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
 
 # VCS info (Git branch)
 autoload -Uz vcs_info
