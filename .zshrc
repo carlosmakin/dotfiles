@@ -15,21 +15,6 @@ colors
 # Enable colored output from ls, etc. on FreeBSD-based systems
 export CLICOLOR=1
 
-# Alias common commands
-alias diff='diff --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
-alias ip='ip --color=auto'
-alias ls='ls --color=auto'
-alias ping='ping -c 5'
-alias df='df -h'
-alias du='du -h'
-alias cp='cp -v'
-alias ln='ln -v'
-alias mv='mv -v'
-alias rm='rm -v'
-
 # Set options
 setopt CORRECT
 setopt PROMPT_SUBST
@@ -52,6 +37,21 @@ RPROMPT="%@"
 # History Search with Arrow Keys
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+# Alias common commands
+alias diff='diff --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip --color=auto'
+alias ls='ls --color=auto'
+alias ping='ping -c 5'
+alias df='df -h'
+alias du='du -h'
+alias cp='cp -v'
+alias ln='ln -v'
+alias mv='mv -v'
+alias rm='rm -v'
 
 # PATH Configuration
 export PATH="$PATH:/usr/local/flutter/bin"
