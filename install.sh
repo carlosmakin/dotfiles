@@ -71,48 +71,6 @@ alias rm='rm -v'
 
 EOF
 
-# Prompt to install Homebrew if not installed
-if ! command -v brew >/dev/null 2>&1; then
-    read -p "Homebrew is not installed. Do you want to install it? (y/n) " -n 1 -r
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    fi
-fi
-
-# Check if Homebrew is installed
-if command -v brew >/dev/null 2>&1; then
-    if ! brew list zsh-syntax-highlighting &>/dev/null; then
-        read -p "zsh-syntax-highlighting is not installed. Do you want to install it? (y/n) " -n 1 -r
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-            brew install zsh-syntax-highlighting
-        fi
-    fi
-
-    if ! brew list zsh-autosuggestions &>/dev/null; then
-        read -p "zsh-autosuggestions is not installed. Do you want to install it? (y/n) " -n 1 -r
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-            brew install zsh-autosuggestions
-        fi
-    fi
-
-    # Add Homebrew integration to .zshrc if not already present
-    if ! grep -q 'eval "$(/opt/homebrew/bin/brew shellenv)"' "$HOME/.dotfiles/.zshrc"; then
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.dotfiles/.zshrc"
-    fi
-
-    # Add zsh-syntax-highlighting to .zshrc if installed and not already present
-    ZSH_SYNTAX_HIGHLIGHTING="/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-    if [ -f "$ZSH_SYNTAX_HIGHLIGHTING" ] && ! grep -q "source $ZSH_SYNTAX_HIGHLIGHTING" "$HOME/.dotfiles/.zshrc"; then
-        echo "source $ZSH_SYNTAX_HIGHLIGHTING" >> "$HOME/.dotfiles/.zshrc"
-    fi
-
-    # Add zsh-autosuggestions to .zshrc if installed and not already present
-    ZSH_AUTOSUGGESTIONS="/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-    if [ -f "$ZSH_AUTOSUGGESTIONS" ] && ! grep -q "source $ZSH_AUTOSUGGESTIONS" "$HOME/.dotfiles/.zshrc"; then
-        echo "source $ZSH_AUTOSUGGESTIONS" >> "$HOME/.dotfiles/.zshrc"
-    fi
-fi
-
 # Create a symbolic link from .dotfiles/.zshrc to ~/.zshrc
 ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 
