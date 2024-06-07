@@ -55,13 +55,13 @@ alias ln='ln -v'
 alias mv='mv -v'
 alias rm='rm -v'
 
-# PATH Configuration
-export PATH="$PATH:/usr/local/flutter/bin"
-export PATH="$PATH:/usr/local/go/bin/go"
-
 # Homebrew Integration
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Syntax highlighting and auto-suggestions
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# PATH Configuration
+export PATH="$PATH:/usr/local/flutter/bin"
+export PATH="$PATH:/usr/local/go/bin/go"
