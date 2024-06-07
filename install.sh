@@ -75,7 +75,4 @@ EOF
 ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 
 # Reload zsh configuration
-echo "Installation complete! Reloading .zshrc..."
-source "$HOME/.zshrc"
-
-echo "All set! Your new zsh configuration is now active."
+echo "Installation complete! Please reload .zshrc"
