@@ -16,6 +16,7 @@ colors
 export CLICOLOR=1
 
 # Set options
+setopt AUTO_CD
 setopt CORRECT
 setopt PROMPT_SUBST
 setopt HIST_IGNORE_DUPS
@@ -23,6 +24,7 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
+setopt EXTENDED_GLOB
 
 # VCS info (Git branch)
 autoload -Uz vcs_info
@@ -47,6 +49,8 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip --color=auto'
 alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -a --color=auto'
 alias ping='ping -c 5'
 alias df='df -h'
 alias du='du -h'
@@ -61,3 +65,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Syntax highlighting and auto-suggestions
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Command-line fuzzy finder
+source <(fzf --zsh)
